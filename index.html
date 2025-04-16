@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DeepSouthLogic</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #0f0f0f;
+      color: #e0e0e0;
+      font-family: 'Courier New', monospace;
+      background-image: url('https://www.transparenttextures.com/patterns/asfalt-light.png');
+    }
+
+    header {
+      padding: 40px 0 10px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin: 0;
+      color: #f9d77e;
+    }
+
+    p.tagline {
+      font-size: 1.2rem;
+      margin-top: 10px;
+      opacity: 0.8;
+      height: 1.5rem;
+    }
+
+    nav {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    nav a {
+      color: #f9d77e;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 1rem;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+
+    h2 {
+      border-bottom: 1px solid #333;
+      padding-bottom: 5px;
+      color: #f9d77e;
+    }
+
+    .project {
+      margin: 20px 0;
+    }
+
+    .project-title {
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .project-desc {
+      margin-top: 5px;
+      color: #bbb;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 0 20px;
+      color: #777;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>DeepSouthLogic</h1>
+    <p class="tagline" id="tagline"></p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="about">
+    <h2>About</h2>
+    <p>
+      Lazy dev with a dark aesthetic and a love for clean code. I write when I feel like it, and debug when the universe makes me. Most of the time, I’m lurking in terminal windows with lo-fi playing in the background.
+    </p>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project">
+      <div class="project-title">RustySpiral</div>
+      <div class="project-desc">A recursive mess that surprisingly works. Wrote it during a thunderstorm. Don't ask why.</div>
+    </div>
+    <div class="project">
+      <div class="project-title">ConsoleDream</div>
+      <div class="project-desc">Terminal-based UI for daydreamers who like to stare into the void and type things.</div>
+    </div>
+    <div class="project">
+      <div class="project-title">FlatCircle</div>
+      <div class="project-desc">Time may be a flat circle, but this static site generator is weirdly linear.</div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Find me on <a href="https://github.com/DeepSouthLogic" target="_blank">GitHub</a>.</p>
+  </section>
+
+  <footer>
+    &copy; 2025 DeepSouthLogic. Built in the dark.
+  </footer>
+
+  <script>
+    const text = "Probably staring at a console log right now.";
+    let i = 0;
+    const speed = 50;
+    function typeWriter() {
+      if (i < text.length) {
+        document.getElementById("tagline").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+      }
+    }
+    window.onload = typeWriter;
+  </script>
+</body>
+</html>
+
+
