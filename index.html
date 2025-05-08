@@ -1,205 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DeepSouthLogic</title>
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>DeepSouth - Personal Void</title>
   <style>
-    body {
+    * {
       margin: 0;
       padding: 0;
-      font-family: 'Share Tech Mono', monospace;
-      background: #000 url('https://grainy-gradients.vercel.app/noise.svg') repeat;
-      color: #fff;
-      line-height: 1.6;
+      box-sizing: border-box;
     }
-
-    .container {
-      max-width: 800px;
-      margin: auto;
-      padding: 2rem;
+    body {
+      background-color: #0a0a0a;
+      color: #cfcfcf;
+      font-family: 'Courier New', monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
     }
-
     h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
+      font-size: 2.8rem;
+      color: #ffcc00;
+      text-shadow: 0 0 10px #ffcc00;
+      margin-bottom: 10px;
     }
-
-    .typing {
-      font-size: 1.2rem;
-      height: 1.5em;
-      overflow: hidden;
-      border-right: 2px solid #fff;
-      white-space: nowrap;
-      animation: blink 0.75s step-end infinite;
-    }
-
-    @keyframes blink {
-      50% { border-color: transparent; }
-    }
-
-    h2 {
-      color: #FFD700;
-      margin-top: 3rem;
-      font-size: 1.5rem;
-    }
-
-    .project {
-      margin: 1.5rem 0;
-    }
-
-    .project-title {
-      font-weight: bold;
-      font-size: 1.1rem;
-    }
-
-    .contact a {
-      color: #3399ff;
-      text-decoration: none;
-    }
-
-    footer {
+    p {
+      max-width: 600px;
       text-align: center;
-      font-size: 0.9rem;
-      margin-top: 4rem;
+      font-size: 1rem;
+      margin: 10px 0;
+      color: #999;
+    }
+    .quote {
+      font-style: italic;
       color: #888;
+      margin-top: 30px;
+      animation: fadeIn 3s ease-in-out infinite alternate;
     }
-
-    .github-button {
-      display: inline-block;
-      padding: 0.5rem 1rem;
-      background: #333;
-      color: #fff;
-      border: 1px solid #666;
-      text-decoration: none;
-      border-radius: 5px;
-      margin-top: 1rem;
+    @keyframes fadeIn {
+      from { opacity: 0.3; }
+      to { opacity: 1; }
     }
-
-    .bat-container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      overflow: hidden;
-      z-index: 9999;
+    .glitch {
+      font-size: 1.5rem;
+      color: #ff5555;
+      animation: glitch 1s infinite;
     }
-
-    .bat {
+    @keyframes glitch {
+      0% { transform: translate(0); }
+      20% { transform: translate(-2px, 2px); }
+      40% { transform: translate(2px, -2px); }
+      60% { transform: translate(-1px, 1px); }
+      80% { transform: translate(1px, -1px); }
+      100% { transform: translate(0); }
+    }
+    footer {
       position: absolute;
-      width: 40px;
-      height: 20px;
-      background: url('https://i.ibb.co/4PNvjm6/bat.png') no-repeat center/contain;
-      opacity: 1;
-      animation: fly 5s linear forwards;
-    }
-
-    @keyframes fly {
-      0% {
-        transform: translate(0, 0) scale(1);
-        opacity: 1;
-      }
-      100% {
-        transform: translate(500px, -300px) scale(0.8);
-        opacity: 0;
-      }
-    }
-
-    @media screen and (max-width: 600px) {
-      h1 {
-        font-size: 2rem;
-      }
-      .typing {
-        font-size: 1rem;
-      }
+      bottom: 10px;
+      font-size: 0.8rem;
+      color: #444;
     }
   </style>
 </head>
 <body>
-  <div class="bat-container" id="batContainer"></div>
-  <div class="container">
-    <h1>DeepSouthLogic</h1>
-    <div class="typing" id="typing"></div>
-
-    <h2>Projects</h2>
-    <div class="project">
-      <div class="project-title">RustySpiral</div>
-      <div>A recursive mess that surprisingly works. Wrote it during a thunderstorm. Don’t ask why.</div>
-    </div>
-    <div class="project">
-      <div class="project-title">ConsoleDream</div>
-      <div>Terminal-based UI for daydreamers who like to stare into the void and type things.</div>
-    </div>
-    <div class="project">
-      <div class="project-title">FlatCircle</div>
-      <div>Time may be a flat circle, but this static site generator is weirdly linear.</div>
-    </div>
-
-    <h2>Contact</h2>
-    <div class="contact">
-      Find me on <a href="https://github.com/TimeIsAFlatLoop" target="_blank">GitHub</a>.
-      <br>
-      <a href="https://github.com/TimeIsAFlatLoop" class="github-button">Visit GitHub</a>
-    </div>
-
-    <footer>
-      &copy; 2025 DeepSouthLogic. Built in the dark.
-    </footer>
-  </div>
+  <h1>Deepsouth Notebook</h1>
+  <p>"Time is a flat circle. Everything we've ever done or will do, we're gonna do over and over and over again."</p>
+  <div class="quote">"I think the honorable thing for our species to do is deny our programming."</div>
+  <div class="glitch" id="glitchText">echo: hello, darkness</div>
+  <footer>&copy; 2025 — Created in the shadow of consciousness</footer>
 
   <script>
-    const phrases = ["DeepSouthLogic", "Code. Think. Repeat.", "Built in the dark."];
-    let part = 0;
-    let partIndex = 0;
-    let intervalVal;
-    const element = document.getElementById("typing");
-
-    function Type() {
-      let text = phrases[part].substring(0, partIndex + 1);
-      element.innerHTML = text;
-      partIndex++;
-
-      if (text === phrases[part]) {
-        clearInterval(intervalVal);
-        setTimeout(() => {
-          intervalVal = setInterval(Delete, 50);
-        }, 1000);
-      }
-    }
-
-    function Delete() {
-      let text = phrases[part].substring(0, partIndex - 1);
-      element.innerHTML = text;
-      partIndex--;
-
-      if (text === '') {
-        clearInterval(intervalVal);
-        part = (part + 1) % phrases.length;
-        partIndex = 0;
-        setTimeout(() => {
-          intervalVal = setInterval(Type, 100);
-        }, 200);
-      }
-    }
-
-    intervalVal = setInterval(Type, 100);
-
-    function spawnBat() {
-      const bat = document.createElement('div');
-      bat.className = 'bat';
-      bat.style.top = Math.random() * window.innerHeight + 'px';
-      bat.style.left = Math.random() * window.innerWidth + 'px';
-      document.getElementById('batContainer').appendChild(bat);
-      setTimeout(() => bat.remove(), 5000);
-    }
-
-    setInterval(spawnBat, 3000);
+    const texts = [
+      "echo: consciousness is a misstep",
+      "echo: the light's winning...",
+      "echo: I see the universe as cold, dead, and empty",
+      "echo: humans are sentient meat",
+      "echo: hello, darkness"
+    ];
+    let i = 0;
+    setInterval(() => {
+      document.getElementById('glitchText').textContent = texts[i % texts.length];
+      i++;
+    }, 4000);
   </script>
 </body>
 </html>
-
-
- 
