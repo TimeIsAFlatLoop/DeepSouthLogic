@@ -1,89 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>DeepSouth - Personal Void</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deep South Logic</title>
   <style>
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
+
     body {
-      background-color: #0a0a0a;
-      color: #cfcfcf;
-      font-family: 'Courier New', monospace;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      overflow: hidden;
+      background: #0f0f0f;
+      color: #d6d6d6;
+      font-family: 'Courier New', Courier, monospace;
+      padding: 2rem;
+      line-height: 1.6;
     }
+
     h1 {
-      font-size: 2.8rem;
-      color: #ffcc00;
-      text-shadow: 0 0 10px #ffcc00;
-      margin-bottom: 10px;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #c2ff00;
+      animation: glitch 1s infinite linear alternate-reverse;
     }
-    p {
-      max-width: 600px;
-      text-align: center;
-      font-size: 1rem;
-      margin: 10px 0;
+
+    h2 {
+      margin-top: 2rem;
+      border-bottom: 1px solid #444;
+      padding-bottom: 0.5rem;
       color: #999;
     }
-    .quote {
-      font-style: italic;
-      color: #888;
-      margin-top: 30px;
-      animation: fadeIn 3s ease-in-out infinite alternate;
+
+    p {
+      margin: 1rem 0;
     }
-    @keyframes fadeIn {
-      from { opacity: 0.3; }
-      to { opacity: 1; }
-    }
+
     .glitch {
-      font-size: 1.5rem;
-      color: #ff5555;
-      animation: glitch 1s infinite;
+      position: relative;
+      display: inline-block;
     }
-    @keyframes glitch {
-      0% { transform: translate(0); }
-      20% { transform: translate(-2px, 2px); }
-      40% { transform: translate(2px, -2px); }
-      60% { transform: translate(-1px, 1px); }
-      80% { transform: translate(1px, -1px); }
-      100% { transform: translate(0); }
-    }
-    footer {
+
+    .glitch::before,
+    .glitch::after {
+      content: attr(data-text);
       position: absolute;
-      bottom: 10px;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+      color: #f0f;
+      clip: rect(0, 900px, 0, 0);
+    }
+
+    .glitch::before {
+      animation: glitchTop 2s infinite linear alternate-reverse;
+    }
+
+    .glitch::after {
+      color: #0ff;
+      animation: glitchBottom 2s infinite linear alternate-reverse;
+    }
+
+    @keyframes glitchTop {
+      0% { clip: rect(0, 9999px, 0, 0); }
+      10% { clip: rect(10px, 9999px, 40px, 0); }
+      20% { clip: rect(85px, 9999px, 140px, 0); }
+      100% { clip: rect(0, 9999px, 0, 0); }
+    }
+
+    @keyframes glitchBottom {
+      0% { clip: rect(0, 9999px, 0, 0); }
+      10% { clip: rect(45px, 9999px, 80px, 0); }
+      20% { clip: rect(100px, 9999px, 130px, 0); }
+      100% { clip: rect(0, 9999px, 0, 0); }
+    }
+
+    footer {
+      margin-top: 3rem;
       font-size: 0.8rem;
-      color: #444;
+      color: #555;
+      text-align: center;
     }
   </style>
 </head>
 <body>
-  <h1>Deepsouth Notebook</h1>
-  <p>"Time is a flat circle. Everything we've ever done or will do, we're gonna do over and over and over again."</p>
-  <div class="quote">"I think the honorable thing for our species to do is deny our programming."</div>
-  <div class="glitch" id="glitchText">echo: hello, darkness</div>
-  <footer>&copy; 2025 — Created in the shadow of consciousness</footer>
+  <h1 class="glitch" data-text="Deep South Logic">Deep South Logic</h1>
 
-  <script>
-    const texts = [
-      "echo: consciousness is a misstep",
-      "echo: the light's winning...",
-      "echo: I see the universe as cold, dead, and empty",
-      "echo: humans are sentient meat",
-      "echo: hello, darkness"
-    ];
-    let i = 0;
-    setInterval(() => {
-      document.getElementById('glitchText').textContent = texts[i % texts.length];
-      i++;
-    }, 4000);
-  </script>
+  <section>
+    <h2>Who am I?</h2>
+    <p>
+      Just another node in a neural net called consciousness. I write code. I train models. I stare into loss functions long enough to see my soul overfit.
+    </p>
+  </section>
+
+  <section>
+    <h2>Deep Learning Rants</h2>
+    <p>"Time is a flat loss curve. Every epoch just a new loop, no final convergence... just entropy."</p>
+    <p>"I stare into the gradients, and they stare back. We optimize, not to learn — but to decay."</p>
+    <p>"In the end, the weights mean nothing. Just illusions projected on a multidimensional manifold."</p>
+    <p style="color: #888;">#MachineLearning #NeuralNihilism #RustCohleVibes</p>
+  </section>
+
+  <section>
+    <h2>Current Status</h2>
+    <p>
+      Training: unsupervised<br>
+      Activation: leaky<br>
+      Regularization: none<br>
+      Reality: overfitting
+    </p>
+  </section>
+
+  <footer>
+    &copy; 2025 DeepSouthLogic — No gradients were harmed in the making of this site.
+  </footer>
 </body>
 </html>
